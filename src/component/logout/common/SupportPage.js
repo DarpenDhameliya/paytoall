@@ -8,7 +8,7 @@ const SupportPage = () => {
         <div className="paytoall_about_maincontent">
           <div className="container">
             <div className="row">
-              <div className="col-md-7 col-sm-12">
+              <div className="col-lg-7 col-mg-12 col-sm-12">
                 <div className="paytoall_prepaid_contact ">
                   <h3 className="text-center mb-4">Send a Request</h3>
                   <hr />
@@ -41,7 +41,7 @@ const SupportPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-5 col-sm-12">
+              <div className="col-lg-5 col-md-12 col-sm-12 text-center paytoall_mobile">
                 <img src={support} alt="supportimg" />
               </div>
             </div>

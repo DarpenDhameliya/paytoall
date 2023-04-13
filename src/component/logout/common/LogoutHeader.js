@@ -2,18 +2,25 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import logo from "../../../assets/images/paytoallnew.png";
 import { FiMenu } from "react-icons/fi";
-import Modal from "react-bootstrap/Modal";
+// import Modal from "react-bootstrap/Modal";
+import Modallogin from "./Modal";
 
 const LogoutHeader = ({ action }) => {
   const [show, setShow] = useState(false);
 
-  // const history = useHistory();
+  const history = useHistory();
   const loginbtn = () => {
-    localStorage.setItem("info", "darpen");
     setShow(true);
-    // history.push("/paytoall/prepaid");
   };
-  const handleClose = () => setShow(false);
+  const handleClose = (call) => {
+    setShow(false)
+  }
+  const handleLogin = (chielddata) => {
+    // console.log(chielddata)
+    setShow(false);
+    localStorage.setItem("info", "darpen");
+    history.push("/paytoall/prepaid");
+  }
 
   return (
     <>
@@ -29,17 +36,17 @@ const LogoutHeader = ({ action }) => {
               <div className="paytoall_header_main_menu d-flex ">
                 <ul>
                   <li>
-                    <Link to="/">About</Link>
+                    <Link to="/login/about">About</Link>
                   </li>
 
                   <li>
-                    <Link to="/">Service</Link>
+                    <Link to="/login/service">Service</Link>
                   </li>
                   <li>
-                    <Link to="/">Bank Info</Link>
+                    <Link to="/login/bank">Bank Info</Link>
                   </li>
                   <li>
-                    <Link to="/">Contact Us</Link>
+                    <Link to="/login/contact">Contact Us</Link>
                   </li>
                 </ul>
               </div>
@@ -66,7 +73,8 @@ const LogoutHeader = ({ action }) => {
         </div>
       </header>
 
-      <Modal
+      <Modallogin parentCallback={handleLogin}  logshow={show} parentcall={handleClose}/>
+       {/* <Modal
         show={show}
         onHide={handleClose}
         aria-labelledby="contained-modal-title-vcenter"
@@ -92,7 +100,7 @@ const LogoutHeader = ({ action }) => {
             Login
           </button>
         </Modal.Body>
-      </Modal>
+      </Modal> */}
     </>
   );
 };

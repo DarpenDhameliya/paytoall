@@ -4,7 +4,7 @@ import LogoutDrawer from "../logout/common/LogoutDrawer";
 import LogoutHeader from "../logout/common/LogoutHeader";
 import useToggle from "../commoncomponent/Hooks/useToggle";
 import Home from "../logout/page/HomeHeader";
-import Footer from "../commoncomponent/Footer";
+import Footer from "../login/LoginCommon/Footer";
 import AboutPage from "../logout/page/AboutPage";
 import BankInfo from "../logout/page/BankInfo";
 import ContactUs from "../logout/page/ContactUs";
@@ -15,11 +15,13 @@ import FaqPage from "../logout/common/FaqPage";
 
 const PrimaryIndex = () => {
   const [logoutdrawer, logoutdrawerAction] = useToggle(false);
+  const [Loginmodalshow, ShowModal] = useToggle(false);
+
 
   return (
     <>
       <LogoutHeader action={logoutdrawerAction.toggle} />
-      <LogoutDrawer drawer={logoutdrawer} action={logoutdrawerAction.toggle} />
+      <LogoutDrawer drawer={logoutdrawer} action={logoutdrawerAction.toggle} modalsw={Loginmodalshow} modalhd={ShowModal.toggle}/>
       <Switch>
         <Route exact path="/login">
           <Home />

@@ -1,11 +1,21 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import logo from "../../../assets/images/paytoall1.png";
 import { FiChevronDown } from "react-icons/fi";
+import Modallogin from "./Modal";
 
 const LogoutDrawer = ({ drawer, action }) => {
   const [size, setSize] = useState("0px");
   const [item, setItem] = useState("Report");
+  const [show, setShow] = useState(false);
+
+  const history = useHistory();
+  const loginbtn = () => {
+    setShow(true);
+  };
+  const handleClose = (call) => {
+    setShow(false);
+  };
   const handler = (e, value, sizes) => {
     e.preventDefault();
     if (sizes > "0px") {
@@ -19,6 +29,13 @@ const LogoutDrawer = ({ drawer, action }) => {
         setItem(value);
       }
     }
+  };
+
+  const login = (chielddata) => {
+    // console.log(chielddata)
+    setShow(false);
+    localStorage.setItem("info", "darpen");
+    history.push("/paytoall/prepaid");
   };
   return (
     <>
@@ -43,28 +60,28 @@ const LogoutDrawer = ({ drawer, action }) => {
                       id="rs"
                       className="menu-item-has-children active"
                     >
-                      <Link to="/"> About</Link>
+                      <Link to="/login/about"> About</Link>
                     </li>
                     <li
                       onClick={(e) => handler(e, "service", size)}
                       id="os"
                       className="menu-item-has-children active"
                     >
-                      <Link to="/"> Service</Link>
+                      <Link to="/login/service"> Service</Link>
                     </li>
                     <li
                       onClick={(e) => handler(e, "bankinfo", size)}
                       id="wallet"
                       className="menu-item-has-children active"
                     >
-                      <Link to="/"> Bank Info </Link>
+                      <Link to="/login/bank"> Bank Info </Link>
                     </li>
                     <li
                       onClick={(e) => handler(e, "contact", size)}
                       id="wallet"
                       className="menu-item-has-children active"
                     >
-                      <Link to="/"> Contact </Link>
+                      <Link to="/login/contact"> Contact </Link>
                     </li>
                   </ul>
                   <ul className="offcanvas_main_menu setonly_mobile">
@@ -73,7 +90,7 @@ const LogoutDrawer = ({ drawer, action }) => {
                       id="Login"
                       className="menu-item-has-children active"
                     >
-                      <Link to="/"> Login </Link>
+                      <span onClick={loginbtn}>Login</span>
                     </li>
                   </ul>
                 </div>
@@ -82,6 +99,11 @@ const LogoutDrawer = ({ drawer, action }) => {
           </div>
         </div>
       </div>
+      <Modallogin
+        parentCallback={login}
+        logshow={show}
+        parentcall={handleClose}
+      />
     </>
   );
 };

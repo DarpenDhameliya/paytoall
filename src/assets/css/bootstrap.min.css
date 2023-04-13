@@ -9,6 +9,7 @@
   --worhheader:#0c2f55; 
   --header_font:#0e1133;
   --header_submenu_font:#505056;
+  --input_border:#6c757d21;
   --header_hower:#f0f8ff;
   --login_page:#0071cc;
   --canvas_color:#222;
@@ -592,21 +593,26 @@ pre code {
 
 @media (min-width:768px) {
   .container {
-    max-width: 720px
+    max-width: 800px  !important
   }
 }
 
 @media (min-width:992px) {
   .container {
-    max-width: 960px
+    max-width: 960px !important
   }
 }
 
 @media (min-width:1200px) {
   .container {
-    max-width: 1200px
+    max-width: 1200px !important
   }
 }
+/* @media (min-width:1400px) {
+  .container {
+    max-width: 1300px !important
+  }
+} */
 
 .container-fluid,
 .container-lg,
@@ -1995,13 +2001,14 @@ pre code {
 
 .table {
   width: 100%;
-  margin-bottom: 1rem;
-  color: #212529
+  margin-bottom: 0;
+  color: #212529;
+  text-align: center;
 }
 
 .table td,
 .table th {
-  padding: .75rem;
+  /* padding: .75rem; */
   vertical-align: top;
   border-top: 1px solid #dee2e6
 }
@@ -2529,7 +2536,7 @@ textarea.form-control {
 
 .form-check-input {
   position: absolute;
-  margin-top: .3rem;
+  /* margin-top: .3rem; */
   margin-left: -1.25rem
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Footer from "../commoncomponent/Footer";
+import Footer from "../login/LoginCommon/Footer";
 import useToggle from "../commoncomponent/Hooks/useToggle";
 import LogoutDrawer from "../logout/common/LogoutDrawer";
 import LogoutHeader from "../logout/common/LogoutHeader";

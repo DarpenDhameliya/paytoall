@@ -11,7 +11,7 @@ const Routes = () => {
         <Switch>
           <PrimaryIndex path="/login"/>
           <MainIndex path='/paytoall' />
-          {/* <Loginapi exact path='/' /> */}
+          <Loginapi exact path='/' />
         </Switch>
       </Router>
     </>
